@@ -13,7 +13,7 @@ import 'package:tallerwebflutter/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
@@ -28,3 +28,29 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 }
+
+Widget MyApp() {
+  return MaterialApp(
+    home: DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Taller de Flutter'),
+          bottom: TabBar(
+            tabs: [
+              Tab(text: 'Inicio'),
+              Tab(text: 'Cursos'),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            Center(child: Text('Inicio')),
+            Center(child: Text('Cursos')),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+

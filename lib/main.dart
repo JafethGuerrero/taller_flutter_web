@@ -14,69 +14,68 @@ class MainApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        textTheme: GoogleFonts.anaheimTextTheme(),
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: Scaffold(
-        body: Row(
+        body: Flex(
+          direction: Axis.horizontal,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                botton(Icons.folder_open, 'Projects', () {}),
-                botton(Icons.color_lens, 'Draft', () {}),
-                botton(Icons.people_alt, 'Shared with me', () {}),
+                botton(Icons.library_books, 'My Documents', () {}),
+                botton(Icons.edit_note, 'Draft Notes', () {}),
+                botton(Icons.group_work, 'Team Space', () {}),
                 const Spacer(),
-                botton(Icons.settings_outlined, 'Settings', () {}),
-                botton(Icons.person_add, 'Invite members', () {}),
-                botton(Icons.create_new_folder, 'New Draft', () {}),
-                botton(Icons.workspace_premium, 'New Project', () {}),
+                botton(Icons.tune, 'Preferences', () {}),
+                botton(Icons.group_add, 'Add Team', () {}),
+                botton(Icons.note_add, 'Create Note', () {}),
+                botton(Icons.add_to_photos, 'Add Folder', () {}),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Side Hustle',
-                        style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.orangeAccent,
-                          fontWeight: FontWeight.bold,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Workspace',
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: Colors.deepPurpleAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                        SizedBox(width: 20),
+                        Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          size: 35,
+                          color: Colors.deepPurple,
+                        ),
+                        Spacer(),
+                        Icon(Icons.share, color: Colors.deepPurple),
+                        SizedBox(width: 20),
+                        Text('Collaborate'),
+                        SizedBox(width: 20),
+                        Icon(Icons.settings, color: Colors.deepPurple),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Wrap(
+                      spacing: 20,
+                      runSpacing: 20,
+                      children: List.generate(
+                        6,
+                        (index) => nota(),
                       ),
-                      SizedBox(width: 20),
-                      Icon(
-                        Icons.arrow_drop_down_circle_rounded,
-                        size: 35,
-                        color: Colors.orange,
-                      ),
-                      SizedBox(width: 800),
-                      Icon(Icons.share, color: Colors.orange),
-                      SizedBox(width: 20),
-                      Text('Share'),
-                      SizedBox(width: 20),
-                      Icon(Icons.more_vert, color: Colors.orange),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      nota(),
-                      const SizedBox(width: 40),
-                      nota(),
-                      const SizedBox(width: 40),
-                      nota(),
-                      const SizedBox(width: 40),
-                      nota(),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -85,14 +84,14 @@ class MainApp extends StatelessWidget {
     );
   }
 
-  nota() {
+  Widget nota() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.orange[50],
+        color: Colors.purple[50],
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.orange.withOpacity(0.2),
+            color: Colors.purple.withOpacity(0.2),
             blurRadius: 10,
             offset: const Offset(0, 6),
           ),
@@ -109,16 +108,16 @@ class MainApp extends StatelessWidget {
                 height: 15,
                 width: 15,
                 decoration: const BoxDecoration(
-                  color: Colors.green,
+                  color: Colors.blue,
                   shape: BoxShape.circle,
                 ),
               ),
               const SizedBox(width: 10),
               const Text(
-                'Title x',
+                'Task x',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.orangeAccent,
+                  color: Colors.deepPurple,
                 ),
               ),
             ],
@@ -129,7 +128,7 @@ class MainApp extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec odio nec nisl sodales fermentum.',
+                  'Updated content for task description. Easy to read and attractive style.',
                   style: TextStyle(color: Colors.black87),
                 ),
               ),
@@ -142,14 +141,14 @@ class MainApp extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange[100],
+                    backgroundColor: Colors.purple[100],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Edit',
-                    style: TextStyle(color: Colors.orange),
+                    style: TextStyle(color: Colors.deepPurple),
                   ),
                 ),
               ),
@@ -170,7 +169,7 @@ class MainApp extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Row(
           children: [
-            Icon(icon, color: Colors.orange),
+            Icon(icon, color: Colors.deepPurple),
             const SizedBox(width: 10),
             Text(
               text,
